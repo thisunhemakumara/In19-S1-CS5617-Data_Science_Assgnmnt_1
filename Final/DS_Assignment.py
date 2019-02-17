@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 import math
+# needs pillow for jpg save
 
 df = pd.read_csv('PSID.csv', parse_dates=True, index_col=0, sep=',')
 df
@@ -44,11 +45,13 @@ plt.plot(x, pdf)
 # two tail test
 plt.fill_between(x,st.norm.pdf(x, mu, sigma),where = x <=-1.96, color='red')
 plt.fill_between(x,st.norm.pdf(x, mu, sigma),where = x >=1.96, color='red')
-plt.show()
+#plt.show()
+plt.savefig('Vis_1.jpg')
 
 plt.plot(x, pdf)
 plt.fill_between(x,st.norm.pdf(x, mu, sigma),where = x <=-1.96, color='red')
 plt.fill_between(x,st.norm.pdf(x, mu, sigma),where = x >=z, color='lightgrey')
-plt.show()
+#plt.show()
+plt.savefig('Vis_2.jpg')
 
 
